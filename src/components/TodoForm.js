@@ -25,18 +25,18 @@ const TodoForm = (props) => {
         
 //     }
 
-    const handleCheckmark = () => {
-        setChecked(current => !current);
-        // console.log(checked);
-        // return checked ? console.log("it's true"): todoArray.filter( (item, index) => {index.remove()} )
+    const handleCheckmark = (indexFromForm, items) => {
+        setChecked(current => !current)
+        let todoObj = todoArray[indexFromForm];
+        console.log(todoObj);
+        if (todoObj.completed === false) {
+            todoObj.completed = true;
+        } else {
+            todoObj.completed = false;
+        }
+        console.log(todoObj.completed);
     }
 
-    const handleRemove = (index) => {
-        const editedArray = todoArray.filter( (item, index) => index !== 1);
-        setTodoArray(editedArray);
-        console.log(editedArray);
-    }
-    
     return (
         <div>
         <form onSubmit={ handleTodoItem }>
@@ -51,7 +51,8 @@ const TodoForm = (props) => {
                 <div>{todoArray.map( (items, index) => {
                     return (
                         <div key={index}> 
-                        <p style= {{textDecorationLine: checked ? 'line-through': '', textDecorationStyle: checked ? 'solid' : ''}}>{items.todo}<input type="checkbox" checked={checked} onChange={handleCheckmark}></input></p>
+                        <p style= {{textDecorationLine: items.completed ? 'line-through': '', textDecorationStyle: items.completed ? 'solid' : ''}}>
+                            {items.todo}<input type="checkbox" checked={items.completed} onChange={() => {handleCheckmark(index, items)}}></input></p>
                         {/* <button onClick={handleRemove}>Completed</button> */}
                         </div>
                         )} )}</div>

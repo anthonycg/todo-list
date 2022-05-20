@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="back-splash">
         
-        <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} todoArray={todoArray} setTodoArray={setTodoArray} checked={checked} setChecked={setChecked} newTodoObj handleTodoItem={handleTodoItem}/>
+        <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} todoArray={todoArray} setTodoArray={setTodoArray} checked={checked} setChecked={setChecked} handleTodoItem={handleTodoItem}/>
       </header>
     </div>
   );
