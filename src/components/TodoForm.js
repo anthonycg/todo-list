@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 const TodoForm = (props) => {
-    const {newTodoObj, todoArray, setTodoArray, setChecked, checked, setTodoItem, todoItem, handleTodoItem} = props;
+    const {newTodoObj, todoArray, setTodoArray, setTodoItem, todoItem, handleTodoItem} = props;
 // const TodoForm = (props) => {
 //     const [todoItem, setTodoItem] = useState("");
 //     const [todoArray, setTodoArray] = useState([]);
@@ -26,7 +26,7 @@ const TodoForm = (props) => {
 //     }
 
     const handleCheckmark = (indexFromForm, items) => {
-        setChecked(current => !current)
+        // setChecked(current => !current)
         let todoObj = todoArray[indexFromForm];
         console.log(todoObj);
         if (todoObj.completed === false) {
@@ -35,7 +35,28 @@ const TodoForm = (props) => {
             todoObj.completed = false;
         }
         console.log(todoObj.completed);
+        const arrayAfterIndex = [...todoArray.slice(indexFromForm + 1)]
+        setTodoArray(
+            [...todoArray.slice(0, indexFromForm), todoObj].concat(arrayAfterIndex)
+        )
     }
+
+    // const handleIncreaseSkill = (indexFromBelow) => {
+    //     // get object by index
+    //     const skillObj = { ...skillArr[indexFromBelow] };
+    //     console.log(skillObj);
+    //     // increment skill level
+    //     skillObj.level++;
+    //     // reset skillArr
+    //     const arrAfterIndex = [...skillArr.slice(indexFromBelow + 1)];
+    //     const arrBeforeIndex = [...skillArr.slice(0, indexFromBelow)];
+    //     console.log(arrAfterIndex);
+    //     console.log(arrBeforeIndex);
+    //     setSkillArr(
+    //       [...skillArr.slice(0, indexFromBelow), skillObj].concat(arrAfterIndex)
+    //     );
+    //   };
+
 
     return (
         <div>

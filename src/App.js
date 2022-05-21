@@ -7,7 +7,7 @@ function App() {
   // const [checked, setChecked] = useState(false);
     const [todoItem, setTodoItem] = useState("");
     const [todoArray, setTodoArray] = useState([]);
-    const [checked, setChecked] = useState(false);
+    // const [checked, setChecked] = useState(false);
     const handleTodoItem = (e) => {
         e.preventDefault();
         setTodoItem(todoItem);
@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <header className="back-splash">
         
-        <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} todoArray={todoArray} setTodoArray={setTodoArray} checked={checked} setChecked={setChecked} handleTodoItem={handleTodoItem}/>
+        <TodoForm todoItem={todoItem} setTodoItem={setTodoItem} todoArray={todoArray} setTodoArray={setTodoArray}  handleTodoItem={handleTodoItem}/>
       </header>
     </div>
   );
